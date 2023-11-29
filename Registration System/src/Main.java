@@ -128,7 +128,7 @@ public class Main {
                 System.out.println("Invalid input, choose regular or international");
             }
         else if(choice.equals("2")){
-                    RegularStudent.DisplayDataBaseEntry();// display the registered students
+                    RegularStudent.displayRegistered();// display the registered students
                     InternationalStudent.displayRegistered();
                 }
         else if(choice.equals("3")){// Update

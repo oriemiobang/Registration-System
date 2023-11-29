@@ -58,22 +58,29 @@ public class RegularStudent extends Student {
     }
     static Main mainObject;
     static void update(){ // update student info
-       
-        for(RegularStudent student: regStudent){
-            System.out.print("Enter student's Adimission to be updated: ");
-            int currentId = input.nextInt();
-            if(student.getAdmissionNumber() == currentId){
-                regStudent.remove(student);
-                System.out.println("Enter the new student's info"); 
-                Main.studentInput(); 
-                break;
-            }
-            else if(!(student.getAdmissionNumber() == currentId)){
-                System.out.println("The Adimission you entered is wrong!");}
+        if(regStudent.isEmpty())
+        System.out.println("\nNothing to be updated, no student has registered yet!\n");
+ 
+        else{
+           for(RegularStudent student: regStudent){
+             System.out.print("Enter student's Adimission to be updated: ");
+             int currentId = input.nextInt();
+             if(student.getAdmissionNumber() == currentId){
+                 regStudent.remove(student);
+                 System.out.println("Enter the new student's info"); 
+                 Main.studentInput(); 
+                 break;
+             }
+             else if(!(student.getAdmissionNumber() == currentId)){
+                 System.out.println("The Adimission you entered is wrong!");}
+         }
         }
     }
     static void delete(){ // delete student info
-        for(RegularStudent student: regStudent){
+        if(regStudent.isEmpty())
+        System.out.println("Nothing to be deleted, no student has registered yet!");
+        else{
+             for(RegularStudent student: regStudent){
             System.out.print("Enter student's Admission to be deleted: ");
             int deleteId = input.nextInt();
             if(student.getAdmissionNumber() == deleteId){
@@ -83,6 +90,8 @@ public class RegularStudent extends Student {
             }
             else if(!(student.getAdmissionNumber() == deleteId)){
                 System.out.println("The Admission you entered is wrong!");}
+        }
+
         }
     }
     // generate a registration slip

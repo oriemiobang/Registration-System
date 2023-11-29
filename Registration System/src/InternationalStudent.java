@@ -61,7 +61,10 @@ public class InternationalStudent extends  Student{
     }
     static Main mainObject;
     static void update(){ // update student info
-        for(InternationalStudent student: internStudentList){
+        if(internStudentList.isEmpty())
+        System.out.println("\nNothing to be updated, no student has registered yet!\n");
+        else{
+            for(InternationalStudent student: internStudentList){
             System.out.print("Enter student's Adimission/ID to be updated: ");
             int currentId = input.nextInt();
             if(student.getAdmissionNumber() == currentId){
@@ -72,9 +75,13 @@ public class InternationalStudent extends  Student{
             }else if(student.getAdmissionNumber() == currentId) {
                 System.out.println("The Adimission/ID you entered is wrong!");}
         }
+        }
     }
     static void delete(){// delete student info
-        for(InternationalStudent student: internStudentList){
+        if(internStudentList.isEmpty())
+        System.out.println("\nNothing to be deleted, no student has registered yet!\n");
+        else {
+               for(InternationalStudent student: internStudentList){
             System.out.print("Enter Student's Admission/ID to be deleted: ");
             int deletePerson = input.nextInt();
             if(student.getAdmissionNumber() == deletePerson){
@@ -84,6 +91,8 @@ public class InternationalStudent extends  Student{
             }else if(!(student.getAdmissionNumber() == deletePerson)){
                 System.out.println("The Addimision/ID you entered is wrong!");}
         }
+        }
+     
     }
     // generate student slip
     void studentSlip(){
